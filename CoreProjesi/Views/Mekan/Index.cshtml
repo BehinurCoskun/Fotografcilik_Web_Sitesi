@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CoreProjesi.Models.Mekan>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Mekanlar</h1>
+<br />
+<p>
+    <a asp-action="Create" class="btn btn-success">Mekan Ekle</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Mekanadi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.il)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ilce)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mekanadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.il)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ilce)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success" >Düzenle</a> |
+               
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger" >Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
